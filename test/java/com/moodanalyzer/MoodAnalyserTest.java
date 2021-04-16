@@ -36,7 +36,16 @@ public class MoodAnalyserTest {
         try{
             moodanalyser.analyseMood();
         } catch (MoodAnalysisException e) {
-            Assert.assertEquals("Please enter proper mood",e.getMessage());
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL,e.type);
+        }
+    }
+    @Test
+    public void givenEmptyMood_ShouldThrowException(){
+        MoodAnalyser moodanalyser=new MoodAnalyser("");
+        try{
+            moodanalyser.analyseMood();
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,e.type);
         }
     }
 }
