@@ -6,8 +6,8 @@ import org.junit.Test;
 public class MoodAnalyserTest {
     @Test
     public void givenMessage_whenSad_shouldReturnSad(){
-        MoodAnalyser moodanalyser=new MoodAnalyser();
-        String mood=moodanalyser.analyseMood("I am in sad mood");
+        MoodAnalyser moodanalyser=new MoodAnalyser("I am in sad mood");
+        String mood=moodanalyser.analyseMood();
         Assert.assertEquals("SAD",mood);
     }
     @Test
